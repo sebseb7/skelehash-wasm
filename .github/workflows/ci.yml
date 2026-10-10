@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    name: Regression Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Cache WASM build artifacts
+        id: wasm-cache
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            skelehash.wasm
+            skelehash.js
+          key: ${{ runner.os }}-skelehash-wasm-${{ hashFiles('src/**', 'index.js', 'adapter.js', 'Dockerfile') }}
+
+      # Only reuse the cached binaries on an EXACT key match. A partial
+      # restore-keys hit could restore a stale skelehash.js built from older
+      # sources (missing newly exported functions), so on any key mismatch
+      # we rebuild from scratch.
+      - name: Build WASM library if needed
+        if: steps.wasm-cache.outputs.cache-hit != 'true'
+        run: npm run build
+
+      - name: Run fixture and validation tests
+        run: npm test
+
+      - name: Build npm package
+        run: npm pack
+
+      - name: Upload npm package artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm-package
+          path: "*.tgz"

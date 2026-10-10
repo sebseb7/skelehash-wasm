@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Compiled WebAssembly artifacts (built via Docker / CI, packaged in npm)
+skelehash.js
+skelehash.wasm
+
+# Package tarballs
+*.tgz
+
+# OS / Editor files
+.DS_Store
+Thumbs.db

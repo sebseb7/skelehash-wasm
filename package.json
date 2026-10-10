@@ -1,0 +1,55 @@
+{
+  "name": "skelehash-wasm",
+  "version": "0.1.0",
+  "description": "SkeleHash: tiny DCT thumbnail placeholder (custom TH03 format) as WebAssembly for Node.js and browsers",
+  "type": "module",
+  "main": "./index.node.js",
+  "module": "./index.js",
+  "exports": {
+    ".": {
+      "node": "./index.node.js",
+      "default": "./index.js"
+    },
+    "./skelehash.wasm": "./skelehash.wasm"
+  },
+  "files": [
+    "index.js",
+    "index.node.js",
+    "adapter.js",
+    "node-worker-client.js",
+    "node-worker.js",
+    "skelehash.js",
+    "skelehash.wasm",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "docker build -o . .",
+    "build:docker": "docker build -o . .",
+    "test": "node test/test.js",
+    "test:compare": "node test/compare/compare.mjs",
+    "manifest": "node demo/gen-manifest.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebseb7/skelehash-wasm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sebseb7/skelehash-wasm/issues"
+  },
+  "homepage": "https://github.com/sebseb7/skelehash-wasm#readme",
+  "keywords": [
+    "thumbhash",
+    "skelehash",
+    "placeholder",
+    "blurhash",
+    "thumbnail",
+    "wasm",
+    "webassembly",
+    "image"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
