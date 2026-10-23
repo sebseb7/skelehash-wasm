@@ -26,9 +26,9 @@ const fnv = (u8) => {
 const fixtures = [
   { w: 1, h: 1, alpha: 255, base62: 'neYGKyLopSI3aYfs4CxLgPOxhttw', checksum: 4205870533 },
   { w: 1, h: 1, alpha: 128, base62: 'FVB8iDPRXxWd45WVCs2V0fbFgH6FuGGCgoS', checksum: 1564101 },
-  { w: 8, h: 8, alpha: 255, base62: 'FB6sUvZhx7Ujsnlnn2i7f2eJLamnegkYVlHgPdIsjZo51sKozzVe7s4EEgdJJAvXrQylui4g78OoGw', checksum: 3013230202 },
-  { w: 7, h: 11, alpha: 128, base62: 'WWJtaizK1PC5PtkXo9ekYmljAd2YMGHxdWGoS2wFMwaJdC2hnK3ugqcksZcLknHGxkd93RGrVcQpbIJ9WiAANmaXfyiOVx8vaDiMtd', checksum: 2835742872 },
-  { w: 200, h: 1, alpha: 255, base62: '5UjWQwExTT2KpmnMtCsthajGNDOTEHwd4F26W7HxEdUJG5', checksum: 2081749649 },
+  { w: 8, h: 8, alpha: 255, base62: '6w5Vl2bn7lIRb3Sj8cGpQlL27aCz7Y0Gsgr3LU8hDCoSFZ1TZr7k3BVhzgeNTAo6TjC4tdtKz21hwIyv9b0R5hEzHuI0n8zRo', checksum: 3443667280 },
+  { w: 7, h: 11, alpha: 128, base62: '45NuFMgjwfUiemtsDsaJZq8ymAjtLcXcdcxbPMOShxP9rjDjRWtEFSCr1BzvCbVb81XF7jIFHMgCyprjvtUO9pr5UXpLUR93l7aIyfiIZShyIl2Ow8rQlzfoPXV2', checksum: 1762578676 },
+  { w: 200, h: 1, alpha: 255, base62: '6Es9WOfhx2kR1R2SskXBwGzrX8FoAVcWpZVMO6zWkLMdLx4opw', checksum: 1503338145 },
 ];
 
 if (!existsSync(new URL('../skelehash.wasm', import.meta.url))) {

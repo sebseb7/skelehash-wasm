@@ -1,6 +1,6 @@
 {
   "name": "skelehash-wasm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SkeleHash: tiny DCT thumbnail placeholder (custom TH03 format) as WebAssembly for Node.js and browsers",
   "type": "module",
   "main": "./index.node.js",
@@ -48,7 +48,7 @@
     "webassembly",
     "image"
   ],
-  "license": "MIT",
+  "license": "0BSD",
   "devDependencies": {
     "sharp": "^0.35.5"
   }

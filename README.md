@@ -118,7 +118,7 @@ Encodes unpremultiplied RGBA bytes into a SkeleHash.
 
 Decodes a canonical Base62 string into unpremultiplied RGBA placeholder bytes.
 
-* **`base62`** (`string`): Canonical Base62 text (`1..256` ASCII characters).
+* **`base62`** (`string`): Canonical Base62 text (`1..320` ASCII characters).
 * **Returns**: `Promise<{ status: number, base62: string, hash: Uint8Array, rgba: Uint8Array, metadata: object }>`
   * `rgba`: Uint8Array of size `metadata.outputWidth * metadata.outputHeight * 4`.
   * `metadata`: Object containing `version`, `sourceWidth`, `sourceHeight`, `outputWidth`, `outputHeight`, `hasAlpha`, `aspectRatio`, etc.
