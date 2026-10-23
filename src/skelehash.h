@@ -9,8 +9,8 @@ extern "C" {
 #define SH_VERSION 3
 #define SH_MAX_INPUT_EDGE 200
 #define SH_OUTPUT_EDGE 64
-#define SH_MAX_HASH_BYTES 128
-#define SH_MAX_BASE62_LENGTH 256
+#define SH_MAX_HASH_BYTES 192
+#define SH_MAX_BASE62_LENGTH 320
 #define SH_BASE62_ALPHABET "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 typedef enum {

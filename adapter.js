@@ -41,8 +41,8 @@ export function createSkeleHashAPI(Module) {
       } finally { Module._free(pointer); }
     },
     decodeBase62(text) {
-      if (typeof text !== 'string' || text.length < 1 || text.length > 256 || !/^[1-9A-Za-z][0-9A-Za-z]*$/.test(text))
-        throw new TypeError('Expected canonical Base62 text (1..256 ASCII characters)');
+      if (typeof text !== 'string' || text.length < 1 || text.length > 320 || !/^[1-9A-Za-z][0-9A-Za-z]*$/.test(text))
+        throw new TypeError('Expected canonical Base62 text (1..320 ASCII characters)');
       const pointer = Module._malloc(text.length + 1);
       if (!pointer) throw new Error('SkeleHash: out of memory');
       try {

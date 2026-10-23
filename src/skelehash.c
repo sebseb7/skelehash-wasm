@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #define SH_PI 3.14159265358979323846
-#define SH_MAX_MODES 104
+#define SH_MAX_MODES 136
 static const unsigned band_bits[3] = {6, 4, 3};
 static const char alphabet[] = SH_BASE62_ALPHABET;
 typedef struct { unsigned x, y, band, bits; double ac; } mode;
@@ -35,7 +35,8 @@ uint32_t sh_result_height(const sh_result *r) { return r ? r->metadata.output_he
 
 static void specs(sh_metadata *m, channel channels[4]) {
     unsigned longest = m->source_width > m->source_height ? m->source_width : m->source_height;
-    unsigned limits[4] = {m->has_alpha ? 10u : 14u, 6, 6, 10};
+    /* Longest edge gets 16 modes for L, 8 for P/Q chroma, and 12 for Alpha; shorter edge scales proportionally. */
+    unsigned limits[4] = {16, 8, 8, 12};
     m->version = 3; m->flags = m->has_alpha; m->channel_count = m->has_alpha ? 4 : 3;
     m->output_width = (unsigned)fmax(1, js_round(64.0 * m->source_width / longest));
     m->output_height = (unsigned)fmax(1, js_round(64.0 * m->source_height / longest));
